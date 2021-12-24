@@ -1,0 +1,35 @@
+{
+  "name": "tftchamprecommender",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "ts-node server.ts",
+    "populate": "ts-node script.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rohanmaheshwari430/TFTChampRecommender.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rohanmaheshwari430/TFTChampRecommender/issues"
+  },
+  "homepage": "https://github.com/rohanmaheshwari430/TFTChampRecommender#readme",
+  "devDependencies": {
+    "@types/cors": "^2.8.12",
+    "@types/node": "^16.11.9",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "firebase": "^9.5.0",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.2"
+  },
+  "dependencies": {
+    "csv-parser": "^3.0.0",
+    "firebase-admin": "^10.0.0",
+    "fs": "0.0.1-security"
+  }
+}
