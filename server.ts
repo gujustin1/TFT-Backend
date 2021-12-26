@@ -20,7 +20,17 @@ type Recommender = {
     champions: string[];
 }
 
+type Champion = {
+    champion: string;
+    items: string[];
+    image: string;
+}
+
 type RecommenderWithID = Recommender & {
+    id: string;
+}
+
+type ChampionWithID = Champion & {
     id: string;
 }
 
@@ -45,7 +55,19 @@ app.get('/getRecommenders', async (req, res) => {
   res.send(list);
 })
 
-app.get('/recommendItems/:champion', async (req, res) => {
+app.get('/getChampions', async (req, res) =>{
+    const champsSnapshot = await champions.get();
+    const allChampDocs = champsSnapshot.docs;
+    const list: Champion[] = [];
+    for (let doc of allChampDocs) {
+        const champ: ChampionWithID = doc.data() as ChampionWithID;
+        champ.id = doc.id;
+        list.push(champ);
+  }
+  res.send(list);
+})
+
+app.get('/getChamp/:champion', async (req, res) => {
     const champion: string = req.params.champion;
     const itemsData = (await champions.doc(champion).get()).data();
     res.send(itemsData);
